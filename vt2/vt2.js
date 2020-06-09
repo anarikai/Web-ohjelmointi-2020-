@@ -38,7 +38,7 @@ function taytaSarjanNimet(data) {
     return sarjatJaJoukkueet;
 }
 
-let joukkueData = taytaSarjanNimet(data);
+let sortedData = taytaSarjanNimet(data);
 
 function tee_taulukko(data) {
     var body = document.getElementsByTagName("body")[0];
@@ -63,9 +63,58 @@ function tee_taulukko(data) {
 
     tr.appendChild(otsikkoSarja);
     tr.appendChild(otsikkoJoukkue);
+
+    for (let i = 0; i < data.length; i++) {
+        var uusiTr = document.createElement("tr");
+        var tdSarja = document.createElement("td");
+        var tdJoukkue = document.createElement("td");
+
+        var textSarja = document.createTextNode(data[i].sarja);
+        var textJoukkue = document.createTextNode(data[i].joukkue);
+
+        tdSarja.appendChild(textSarja);
+        tdJoukkue.appendChild(textJoukkue);
+
+        uusiTr.appendChild(tdSarja);
+        uusiTr.appendChild(tdJoukkue);
+
+        table.appendChild(uusiTr);
+    }
+ }
     
+ tee_taulukko(sortedData);
+
+
+function lisaaRasti(data, rasti) {
+    let rastit = data.rastit;
+    let suurin = 0;
+    for (let i = 0; i < rastit.length; i++) {
+        let rastinId = rastit[i].id;
+        for (let j = 1; j < rastit.length; j++) {
+            let seuraavanRastinId = rastit[j].id;
+            if (rastinId < seuraavanRastinId) {
+                suurin = seuraavanRastinId;
+            }
+            if (rastinId > seuraavanRastinId) {
+                suurin = rastinId;
+            }
+            if (rastinId === seuraavanRastinId) {
+                suurin = rastinId;
+            }
+        }
+    }
+    rasti.id = suurin + 1;
+    rastit.push(rasti);
 }
 
-tee_taulukko(data);
+var malliRasti = {
+    "lon": "25.542413",
+    "koodi": "6Y",
+    "lat": "62.120776",
+    "id": 0
+};
+
+lisaaRasti(data, malliRasti);
+console.log(data);
 
 };
