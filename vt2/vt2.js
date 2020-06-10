@@ -40,6 +40,8 @@ function taytaSarjanNimet(data) {
 
 let sortedData = taytaSarjanNimet(data);
 
+// Tässä tehdään taulukko nimeltä Tulokset,
+// jossa on mukana kolumnit sarja ja joukkue.
 function tee_taulukko(data) {
     var body = document.getElementsByTagName("body")[0];
     var div = document.getElementById("tupa");
@@ -81,10 +83,17 @@ function tee_taulukko(data) {
         table.appendChild(uusiTr);
     }
  }
-    
+
+ // Kutsutaan edellistä funktiota parametrina
+ // oikein järjestetty data.
  tee_taulukko(sortedData);
 
 
+ // Funktio lisää uuden rastin data-rakenteeseen
+ // ja määrää uudelle rastille id:n seuraavalla tavalla:
+ // käy läpi jo olemassa olevien rastien id:t,
+ // etsi niistä suurin.
+ // Uuden rastin id:ksi tulee suurin id + 1.
 function lisaaRasti(data, rasti) {
     let rastit = data.rastit;
     let suurin = 0;
@@ -102,19 +111,127 @@ function lisaaRasti(data, rasti) {
                 suurin = rastinId;
             }
         }
+        if (rasti.lon === undefined) {
+            rasti.lon = "";
+        }
+        if (rasti.koodi === undefined) {
+            rasti.koodi = "";
+        }
+        if (rasti.lat === undefined) {
+            rasti.lat = "";
+        }
+        if (rasti.id === undefined) {
+            rasti.id = "";
+        }
     }
     rasti.id = suurin + 1;
     rastit.push(rasti);
+
+    console.log("- Alta näet kaikkien rastien koodit ja koordinaatit -");
+
+    for (let i = 0; i < rastit.length; i++) {
+        
+        console.log("Koodi: " + rastit[i].koodi);
+        console.log("Koordinaatit " + rastit[i].lon + " " + rastit[i].lat);
+    }
+
+    /*var malliRasti = {
+      "lon": "25.542413",
+      "koodi": "6Y",
+      "lat": "62.120776",
+      "id": 0
+    };*/
 }
 
-var malliRasti = {
-    "lon": "25.542413",
-    "koodi": "6Y",
-    "lat": "62.120776",
-    "id": 0
-};
+//lisaaRasti(data, malliRasti);
 
-lisaaRasti(data, malliRasti);
-console.log(data);
+// Tämä hirviöfunktio luo rastilomakkeen ja
+// tekee eventlistnerin buttonille.
+// Lopussa kutsutaan lisaaRasti-funktiota 
+function rastiForm(data) {
+    
+    var form = document.getElementsByTagName("form")[0];
+    var fieldset = document.createElement("fieldset");
+
+    form.appendChild(fieldset);
+
+    var legend = document.createElement("legend");
+    legend.textContent = "Rastin tiedot";
+
+    fieldset.appendChild(legend);
+    
+    var latP = document.createElement("p");
+    var latLabel = document.createElement("label");
+    latLabel.textContent = "Lat ";
+
+    var latInput = document.createElement("input");
+    latInput.id = "latValue";
+    latInput.setAttribute("type", "text");
+    latInput.setAttribute("value", "");
+
+    fieldset.appendChild(latP);
+    latP.appendChild(latLabel);
+    latLabel.appendChild(latInput);
+
+    var lonP = document.createElement("p");
+    var lonLabel = document.createElement("label");
+    lonLabel.textContent = "Lon ";
+
+    var lonInput = document.createElement("input");
+    lonInput.id = "lonValue";
+    lonInput.setAttribute("type", "text");
+    lonInput.setAttribute("value", "");
+
+    fieldset.appendChild(lonP);
+    lonP.appendChild(lonLabel);
+    lonLabel.appendChild(lonInput);
+
+    var kP = document.createElement("p");
+    var kLabel = document.createElement("label");
+    kLabel.textContent = "Koodi ";
+
+    var kInput = document.createElement("input");
+    kInput.id = "koodiValue";
+    kInput.setAttribute("type", "text");
+    kInput.setAttribute("value", "");
+
+    fieldset.appendChild(kP);
+    kP.appendChild(kLabel);
+    kLabel.appendChild(kInput);
+
+    var buttonP = document.createElement("p");
+    var button = document.createElement("button");
+    button.textContent = "Lisää rasti";
+    button.setAttribute("name", "rasti");
+    button.setAttribute("id", "rasti");
+
+    fieldset.appendChild(buttonP);
+    buttonP.appendChild(button);
+
+    let painike = document.querySelector("button");
+    painike.addEventListener("click", function (e) {
+        e.preventDefault();
+        latInput.setAttribute("value", latInput.value);
+        lonInput.setAttribute("value", lonInput.value);
+        kInput.setAttribute("value", kInput.value);
+        if (latInput.getAttribute("value") === "" || lonInput.getAttribute("value") === "" || kInput.getAttribute("value") === "") {
+            console.log("Täytä lisättävä rasti!");
+        }
+        else {
+            var uusiRasti = {
+                "lat": latInput.value,
+                "lon": lonInput.value,
+                "koodi": kInput.value
+            };
+
+            lisaaRasti(data, uusiRasti);
+        }
+
+    });
+
+}
+
+rastiForm(data);
+
 
 };
