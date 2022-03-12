@@ -1,0 +1,11 @@
+
+  
+  input:valid {
+    border: 2px solid black;
+    padding: 2px;
+  }
+
+  label {
+    display: block;
+    min-width: 20em;
+  }

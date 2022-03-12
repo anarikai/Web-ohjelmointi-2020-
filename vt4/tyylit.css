@@ -1,0 +1,169 @@
+body{
+    background-color: black;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.pingviini{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    animation-duration: 5s;
+    animation-name: pingviini;
+    animation-iteration-count: infinite;
+}
+
+.pingviini2{
+    position: absolute;
+    top: calc(100% - 100px);
+    left: calc(100% - 100px);
+    animation-duration: 5s;
+    animation-name: pingviini2;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pingviini{
+    from{   
+        top: 0%;
+        left: 0%;
+    }
+    25%{
+        top: calc(100% - 100px);
+        left: calc(50% - 50px);
+    }
+    50%{
+        top: 0%;
+        left:calc(100% - 100px);
+    }
+    75%{
+        top: calc(100% - 100px);
+        left: calc(50% - 50px);
+    }
+    100%{
+        top: 0%;
+        left: 0%;
+    }
+}
+
+@keyframes pingviini2{
+    from{   
+        top: calc(100% - 100px);
+        left: calc(100% - 100px);
+    }
+    25%{
+        top: 0%;
+        left: calc(50% - 50px);
+    }
+    50%{
+        top: calc(100% - 100px);
+        left: 0%;
+    }
+    75%{
+        top: 0%;
+        left: calc(50% - 50px);
+    }
+    100%{
+        top: calc(100% - 100px);
+        left: calc(100% - 100px);
+    }
+}
+
+#pollo1{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    animation-duration: 5s;
+    animation-name: pollo1;
+    animation-iteration-count: infinite;
+}
+@keyframes pollo1{
+    from{
+        top: 0%;
+        left: 100%;
+    }
+    50%{
+        top: 50%;
+        left: 50%;
+    }
+    100%{
+        top: 0%;
+        left: 100%;
+    }
+}
+
+#pollo2{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    animation-duration: 5s;
+    animation-name: pollo2;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pollo2{
+    from{
+        top: 0%;
+        left: 100%;
+    }
+    50%{
+        top: 50%;
+        left: 50%;
+    }
+    100%{
+        top: 0%;
+        left: 100%;
+    }
+}
+
+#pollo3{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    animation-duration: 5s;
+    animation-name: pollo3;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes pollo3{
+    from{
+        top: 0%;
+        left: 100%;
+    }
+    50%{
+        top: 50%;
+        left: 50%;
+    }
+    100%{
+        top: 0%;
+        left: 100%;
+    }
+}
+
+
+#pollo4{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    animation-duration: 5s;
+    animation-name: pollo4;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes pollo4{
+    from{
+        top: 0%;
+        left: 100%;
+    }
+    50%{
+        top: 50%;
+        left: 50%;
+    }
+    100%{
+        top: 0%;
+        left: 100%;
+    }
+}

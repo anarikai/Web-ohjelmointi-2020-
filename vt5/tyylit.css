@@ -1,0 +1,71 @@
+body {
+    display: flex;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 50%;
+}
+
+#elementti {
+    width: 100%;
+    height: 50%;
+    top: 50%;
+    display: flex;
+    position: absolute;
+
+}
+
+h2 {
+    text-align: center;
+}
+
+li {
+    margin-left: 10px;
+    width: 30%;
+}
+
+#rastitListaan {
+    columns: 4;
+    border: 1px solid black;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin-left: 5%;
+}
+
+#joukkueetListaan {
+    border: 1px solid black;
+    display: block;
+    height: 100%;
+    margin: 5%;
+}
+
+#joukkueet {
+    width: 25%;
+}
+#kartalla {
+    width: 50%;
+}
+.pos-absolute {
+  position: absolute;
+}
+
+
+#dropJoukkueetjaRastit {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    position: relative;
+}
+
+#rastit {
+    width: 25%;
+}
+

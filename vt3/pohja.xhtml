@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fi" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi">
+    <head><!-- head-osan sisältöä ei saa muuttaa -->
+        <script src="http://appro.mit.jyu.fi/tiea2120/vt/vt1/2020/data.js"></script>
+        <script src="vt3.js"></script>
+        <link rel="StyleSheet" href="tyylit.css" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8"/>
+        <title>Tulospalvelu</title>
+    </head>
+    <body><!-- Tämän tiedoston sisältöä saa muuttaa vapaasti tästä kommentista eteenpäin ! -->
+       <h1>Tulospalvelu</h1>
+       <h2>Lisää joukkue</h2>
+       <pre id="log"></pre>
+      <form>
+           <fieldset id="joukkuelisaa">
+            <legend>Joukkueen tiedot</legend>
+            <p>
+                <label>Nimi</label>
+                <input id="nimi" type="text" name="nimi" value="" title="Anna joukkueen nimi" autocomplete="off" required="required"/>
+            </p>
+            <p>
+                <label>Leimaustapa</label>
+                <label for="gps">GPS</label>
+                <input id="gps" type="checkbox" name="leimaustapa" value="gps"></input>
+                <br></br>
+                <label for="nfc">NFC</label>
+                <input id="nfc" type="checkbox" name="leimaustapa" value="nfc"></input>
+                <br></br>
+                <label for="qr">QR</label>
+                <input id="qr" type="checkbox" name="leimaustapa" value="qr"></input>
+                <br></br>
+                <label for="lomake">Lomake</label>
+                <input id="lomake" type="checkbox" name="leimaustapa" value="lomake"></input>
+            </p>
+            <p>
+                <span>
+                    <label>Sarja</label>
+                    <label for="2h">2h</label>
+                    <input id="2h" type="radio" name="sarja" value="2h" checked="checked" required="required"></input>
+                    <br></br>
+                    <label for="4h">4h</label>
+                    <input id="4h" type="radio" name="sarja" value="4h" required="required"></input>
+                    <br></br>
+                    <label for="8h">8h</label>
+                    <input id="8h" type="radio" name="sarja" value="8h" required="required"></input>
+                </span>                
+            </p>
+            
+           </fieldset>
+           <fieldset id="lisaajasen">
+               <legend>Jäsenet</legend>
+               <label for="jasen1">Jäsen 1
+               <input id="jasen1" type="text" name="jasen1" value="" title="" autocomplete="off" required="required"></input>
+               </label>
+               <label for="jasen2">Jäsen 2
+               <input id="jasen2" type="text" name="jasen2" value="" title="" autocomplete="off" required="required"></input>
+               </label>
+           </fieldset>
+           <p>
+               <input id="button" type="submit" value="Tallenna"></input>
+           </p>
+       </form>
+<!-- Sivun validoinnin voit tehdä milloin tahansa näppäinyhdistelmällä CTRL+ALT+V -->
+<script src="http://appro.mit.jyu.fi/tools/validator/validator.user.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jshint/2.11.0/jshint.js"></script>
+<script src="http://appro.mit.jyu.fi/tools/jshint/jshint.user.js"></script>
+</body>
+</html>

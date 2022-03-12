@@ -1,0 +1,17 @@
+#joukkue-form {
+        width: 50%;
+        float: left;
+}
+.text-input {
+    margin-left:25%;
+    width:50%;
+}
+#listaaJoukkueet {
+        width: 50%;
+        float: right;
+}
+
+.leimaus-form {
+    text-align: right;
+    margin-right: 25%;
+}
